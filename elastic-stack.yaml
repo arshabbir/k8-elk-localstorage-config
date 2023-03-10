@@ -147,7 +147,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/some new/directory/structure/"
+    path: "/mnt/somenew/directory/structure/"
     type: DirectoryOrCreate
 
 ---
@@ -166,7 +166,7 @@ spec:
   ports:
   - port: 9200
     protocol: TCP
-    targetPort: db
+    targetPort : 9200
   selector:
     k8s-app: elasticsearch-logging
 ---
@@ -230,7 +230,7 @@ metadata:
     addonmanager.kubernetes.io/mode: Reconcile
 spec:
   serviceName: elasticsearch-logging
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       k8s-app: elasticsearch-logging
