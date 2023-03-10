@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: elasticsearch-config
+  namespace: kube-system
+data:
+  elasticsearch.yml: |
+    cluster.name: elasticsearch-pod
+    node.name: ${HOSTNAME}
+    network.host: 0.0.0.0
+    
+    bootstrap.memory_lock: false
+    
+    discovery.zen.minimum_master_nodes: 1
+    discovery.zen.ping.unicast.hosts: ["es-0", "es-1", "es-2"]

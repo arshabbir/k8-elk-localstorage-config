@@ -263,6 +263,8 @@ spec:
         - name: elasticsearch-logging
           mountPath: /data
         env:
+        - name: MINIMUM_MASTER_NODES
+          value : "1"
         - name: "NAMESPACE"
           valueFrom:
             fieldRef:
